@@ -2,16 +2,24 @@
 // массив из 8 элементов, заполненный нулями и единицами в случайном порядке.
 
 
-int[] randnumber = new int[8];
-for(int i = 0; i < randnumber.Length;i++)
+int[] FillArrayWithRandomNumbers(int size, int leftRange, int rightRange)
 {
+    int[] arr = new int[size];
     Random rand = new Random();
-    randnumber[i] = rand.Next(0,50);
+    for (int i = 0; i < arr.Length; i++)
+    {
+        arr[i] = rand.Next(leftRange, rightRange + 1);
+    }
+    return arr;
 }
 
-void Viewnumber (int[] number)
+void PrintArray(int[] arr)
 {
-    System.Console.Write($"[{string.Join(", ",number)}]");
+    System.Console.WriteLine("[" + string.Join(", ", arr) + "]");
 }
 
-Viewnumber(randnumber);
+int[] array = FillArrayWithRandomNumbers(8, 0, 50);
+
+
+
+PrintArray(array);
